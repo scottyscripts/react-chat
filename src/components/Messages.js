@@ -35,6 +35,9 @@ function SentMessage({ message, currentUser }) {
         <p className={`${styles.message} ${styles.sentMessage}`}>
           {message.text}
         </p>
+        {/* QUESTION - Should sent messages have timestamp and initials? (Requirements mention:
+          "Each message in a conversation displays a timestamp, user icon, and message text
+          but wireframe doesn't show these for sent messages.) */}
         <Timestamp timestamp={message.timestamp} align="right" />
       </div>
       <div className={styles.sentMessageInitials}>
