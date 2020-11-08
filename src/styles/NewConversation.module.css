@@ -1,0 +1,58 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.userListContainer { 
+  overflow: auto;
+}
+
+.selectedUsersContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.selectedUserTag {
+  background-color: #5ebdc1;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 5px;
+  border: 2px solid black;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.userContainer {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  padding: 10px;
+}
+
+.selectedUserContainer {
+  background-color: #ccfdff;
+}
+
+.userContainer:hover {
+  cursor: pointer;
+}
+
+.userIcon {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin-right: 20px;
+}
+
+.footer {
+  display: flex;
+  flex: 1;
+  justify-content: space-between;
+  padding: 10px;
+  border-top: 1px solid black;
+}

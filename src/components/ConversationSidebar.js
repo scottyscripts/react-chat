@@ -10,11 +10,15 @@ function ConversationSidebar({ conversations, currentUser }) {
       {conversations.map((conversation) => {
         const users = conversation.users.filter((u) => u.id !== currentUser.id);
         let displayName = `${users[0].firstName} ${users[0].lastName.charAt(0)}`;
-
         if (users.length > 1) {
           displayName += ` (+${users.length - 1} others)`
         }
-        const lastMessageText = conversation.messages[0].text;
+
+        let lastMessageText = '';
+        if (conversation.messages.length > 0) {
+          lastMessageText = conversation.messages[0].text;
+        }
+
         const maxSnippetLength = 20;
         let displayMessage;
         if (lastMessageText.length > maxSnippetLength) {

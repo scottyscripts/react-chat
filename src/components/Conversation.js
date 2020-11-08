@@ -1,6 +1,6 @@
 import { Component, Fragment } from 'react';
 import styles from '../styles/Conversation.module.css';
-import data from '../data';
+import { SentMessage, ReceivedMessage } from '../components/Messages';
 
 class Conversation extends Component {
   constructor(props) {
@@ -38,41 +38,29 @@ class Conversation extends Component {
       <div className={styles.container}>
         <div className={styles.header}>
           <img src={users[0].iconUrl} className={styles.userIcon} />
-          <h1>{headerTitle}</h1>
+          <h2>{headerTitle}</h2>
         </div>
         <div className={styles.messagesContainer}>
           {messages.map((message, i) => {
             const isMyMessage = message.userId === this.props.currentUser.id;
 
-            let messageJsx;
+            let messageComponent;
             if (isMyMessage) {
-              messageJsx = (
-                <p className={`${styles.message} ${styles.sentMessage}`}>
-                  {message.text}
-                </p>
-              );
+              messageComponent = <SentMessage message={message} />;
             } else {
-              const user = users.find((u) => u.id === message.userId);
-              const userInitials = `${user.firstName.charAt(0)} ${user.lastName.charAt(0)}`;
+              const sender = users.find((u) => u.id === message.userId);
 
-              messageJsx = (
-                <div className={styles.receivedMessageContainer}>
-                  <div className={styles.receivedMessageInitials}>
-                    <span>{userInitials}</span>
-                  </div>
-                  <div>
-                    <p className={`${styles.message} ${styles.receivedMessage}`}>
-                      {message.text}
-                    </p>
-                    <span>{message.timestamp}</span>
-                  </div>
-                </div>
-              )
+              messageComponent = (
+                <ReceivedMessage
+                  message={message}
+                  sender={sender}
+                />
+              );
             }
 
             return (
               <Fragment key={i}>
-                {messageJsx}
+                {messageComponent}
               </Fragment>
             );
           })}

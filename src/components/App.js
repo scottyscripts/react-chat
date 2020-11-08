@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import styles from '../styles/App.module.css';
 import ConversationSidebar from '../components/ConversationSidebar';
 import Conversation from '../components/Conversation';
+import NewConversation from '../components/NewConversation';
 import Home from '../components/Home';
 import data from '../data';
 import utils from '../utils';
@@ -38,11 +39,32 @@ class App extends Component {
 
     if (sendReply) {
       const sendInterval = utils.getRandomInt(1 * 1000, 60 * 1000);
+      const sender = (
+        utils.shuffleArray(this.state.conversations[conversationIndex].users)
+          .find((u) => u.id !== this.state.currentUser.id)
+      );
+      
+      const responseIndex = (utils.getRandomInt(0, sender.responses.length));
+      const responseText = sender.responses[responseIndex];
       setTimeout(() => {
-        const sender = this.state.conversations[conversationIndex].users.find((u) => u.id !== this.state.currentUser.id);
-        this.sendMessage(conversationId, 'Hello there', sender.id)
+        this.sendMessage(conversationId, responseText, sender.id)
       }, sendInterval);
     }
+  }
+
+  createConversation = (users) => {
+    const newConversationId = (this.state.conversations.length + 1);
+    const newConversation = {
+      id: newConversationId,
+      messages: [],
+      users,
+    };
+
+    this.setState((prevState) => (
+      {conversations: [...prevState.conversations, newConversation]}
+    ));
+
+    return newConversationId;
   }
 
   render() {
@@ -57,7 +79,13 @@ class App extends Component {
             <Switch>
               <Route
                 path="/conversations/new"
-                render={() => <h1>New Conversation</h1>}
+                render={({ history }) => (
+                  <NewConversation
+                    history={history}
+                    currentUser={this.state.currentUser}
+                    createConversation={this.createConversation}
+                  />
+                )}
               />
               <Route path="/conversations/:id" render={({ match }) => {
                 const id = parseInt(match.params.id);
