@@ -1,5 +1,6 @@
 import { Component } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import moment from 'moment';
 import styles from '../styles/App.module.css';
 import ConversationSidebar from '../components/ConversationSidebar';
 import Conversation from '../components/Conversation';
@@ -28,7 +29,7 @@ class App extends Component {
       const message = {
         id: 222,
         text: text,
-        timestamp: '2020-10-10',
+        timestamp: moment().format('YYYY-MM-DD HH:mm:ssZ'),
         userId: senderId,
       };
 

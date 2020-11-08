@@ -82,17 +82,17 @@ const conversations = [
     messages: [
       {
         text: 'It\'s been a while, how have you been?',
-        timestamp: '2020-10-10',
+        timestamp: '2020-11-07 10:58:04-08:00',
         userId: users[2].id
       },
       {
         text: 'Things have been quiet here.',
-        timestamp: '2020-10-10',
+        timestamp: '2020-11-07 10:57:04-08:00',
         userId: currentUser.id
       },
       {
         text: 'I am Iron Man.',
-        timestamp: '2020-10-10',
+        timestamp: '2020-10-31 14:59:59-08:00',
         userId: users[1].id
       },
     ]
@@ -106,7 +106,7 @@ const conversations = [
     messages: [
       {
         text: 'I am Groot.',
-        timestamp: '2020-10-10',
+        timestamp: '2020-11-08 10:57:04-08:00',
         userId: users[4].id
       }
     ]

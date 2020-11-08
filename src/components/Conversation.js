@@ -46,7 +46,9 @@ class Conversation extends Component {
 
             let messageComponent;
             if (isMyMessage) {
-              messageComponent = <SentMessage message={message} />;
+              messageComponent = (
+                <SentMessage message={message} currentUser={this.props.currentUser} />
+              );
             } else {
               const sender = users.find((u) => u.id === message.userId);
 
