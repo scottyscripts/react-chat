@@ -24,27 +24,31 @@ class App extends Component {
     const conversationIndex = this.state.conversations.findIndex((c) => c.id === conversationId);
 
     this.setState((prevState) => {
-      const conversationsCopy = prevState.conversations;
+      const conversation = prevState.conversations[conversationIndex];
       
-      const message = {
-        id: 222,
+      const newMessageId = utils.getRandomInt(1, 1000);
+      const newMessage = {
+        id: newMessageId,
         text: text,
         timestamp: moment().format('YYYY-MM-DD HH:mm:ssZ'),
-        userId: senderId,
+        userId: senderId
       };
 
-      conversationsCopy[conversationIndex].messages.unshift(message);
+      conversation.messages.unshift(newMessage);
 
-      return {conversations: conversationsCopy};
+      return {conversations: prevState.conversations};
     });
 
     if (sendReply) {
+      // send response between 1 - 60 seconds
       const sendInterval = utils.getRandomInt(1 * 1000, 60 * 1000);
+      // get "random" sender from current conversation
       const sender = (
         utils.shuffleArray(this.state.conversations[conversationIndex].users)
           .find((u) => u.id !== this.state.currentUser.id)
       );
       
+      // grab "random" user response
       const responseIndex = (utils.getRandomInt(0, sender.responses.length));
       const responseText = sender.responses[responseIndex];
       setTimeout(() => {
@@ -105,7 +109,6 @@ class App extends Component {
               }} />
               <Route path="/" component={Home} />
             </Switch>
-
           </div>
         </BrowserRouter>
       </div>

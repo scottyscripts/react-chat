@@ -22,3 +22,13 @@
   overflow: auto;
   padding: 10px;
 }
+
+.messageTextContainer {
+  display: flex;
+  margin-top: auto;
+}
+
+.messageText {
+  flex: 1;
+  padding: 5px;
+}

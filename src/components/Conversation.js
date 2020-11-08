@@ -22,7 +22,7 @@ class Conversation extends Component {
       this.props.conversation.id,
       this.state.messageText,
       this.props.currentUser.id,
-      true,
+      true
     );
     this.setState({ messageText: '' });
   }
@@ -37,7 +37,7 @@ class Conversation extends Component {
     return (
       <div className={styles.container}>
         <div className={styles.header}>
-          <img src={users[0].iconUrl} className={styles.userIcon} />
+          <img src={users[0].iconUrl} className={styles.userIcon} alt="User icon" />
           <h2>{headerTitle}</h2>
         </div>
         <div className={styles.messagesContainer}>
@@ -67,12 +67,12 @@ class Conversation extends Component {
             );
           })}
         </div>
-        <div style={{display: 'flex', marginTop: 'auto'}}>
+        <div className={styles.messageTextContainer}>
           <textarea
             value={this.state.messageText}
             onChange={this.onMessageTextChange}
             placeholder="Type your message..."
-            style={{flex: 1, padding: '5px'}}
+            className={styles.messageText}
           />
           <button onClick={this.onSendMessage}>Send</button>
         </div>
