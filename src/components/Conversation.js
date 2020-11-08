@@ -74,7 +74,7 @@ class Conversation extends Component {
             placeholder="Type your message..."
             className={styles.messageText}
           />
-          <button onClick={this.onSendMessage}>Send</button>
+          <button onClick={this.onSendMessage} className={styles.btnSendMessage}>Send</button>
         </div>
       </div>
     )

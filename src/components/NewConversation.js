@@ -63,7 +63,7 @@ function NewConversation(props) {
           })}
         </div>
         {selectedUsers.length > 0 && (
-          <button onClick={onCreateConversation}>Create</button>
+          <button className={styles.btnCreateConversation} onClick={onCreateConversation}>Create</button>
         )}
       </div>
     </div>

@@ -6,6 +6,7 @@
 
 .userListContainer { 
   overflow: auto;
+  flex-grow: 1;
 }
 
 .selectedUsersContainer {
@@ -21,7 +22,7 @@
   border-radius: 5px;
   margin: 5px;
   border: 2px solid black;
-  font-size: 12px;
+  font-size: 16px;
   cursor: pointer;
 }
 
@@ -43,16 +44,20 @@
 }
 
 .userIcon {
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   margin-right: 20px;
 }
 
 .footer {
   display: flex;
-  flex: 1;
   justify-content: space-between;
+  align-items: center;
   padding: 10px;
   border-top: 1px solid black;
+}
+
+.btnCreateConversation {
+  height: 50px;
 }
