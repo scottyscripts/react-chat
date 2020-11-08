@@ -50,7 +50,8 @@ const conversations = [
     id: 1,
     users: [
       currentUser,
-      users[2]
+      users[2],
+      users[1],
     ],
     messages: [
       {
@@ -62,6 +63,11 @@ const conversations = [
         text: 'Things have been quiet here.',
         timestamp: '2020-10-10',
         userId: currentUser.id
+      },
+      {
+        text: 'I am Iron Man.',
+        timestamp: '2020-10-10',
+        userId: users[1].id
       },
     ]
   },

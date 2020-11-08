@@ -1,0 +1,48 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  flex-basis: 25%;
+  overflow: auto;
+}
+
+.conversationLink {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  text-decoration: none;
+  color: gray;
+  padding: 10px;
+}
+
+.userIcon {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+}
+
+.infoContainer { 
+  flex-basis: 60%;
+}
+
+.info {
+  margin: 5px;
+}
+
+.infoSm {
+  font-size: 12px;
+}
+
+.btnNewConversation {
+  margin: 10px;
+  margin-top: auto;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 5px;
+  color: black;
+}
